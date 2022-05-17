@@ -30,9 +30,15 @@ for url in urllist:
 
     infodata1 = h2s.findAll('ul')[0]
     pricedata1 = h2s.findAll('table')[0]
-    specificationdata1 = h2s.findAll('table')[2]
-    prosconsdata = h2s.findAll('table')[3]
-
+    try:
+        specificationdata1 = h2s.findAll('table')[2]
+    except:
+        specificationdata1 = 'Data Missing'
+    try:    
+        prosconsdata = h2s.findAll('table')[3]
+    except:
+        prosconsdata = 'Data Missing'
+        
     ext_imlinks = [link.get("src") for link in h2s("img") if "i0.wp" in link.get("src")]
     img1 = ext_imlinks[0]
     img2 = ext_imlinks[-1]
